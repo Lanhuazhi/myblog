@@ -1,0 +1,84 @@
+{% extends 'mine.html' %}
+{% load static %}
+{% load highlight %}
+
+{% block searchCSS %}
+{#        <link rel="stylesheet" type="text/css" media="(max-width:768px)" href="{% static 'blog/search/css/mobile_search.css' %}">#}
+        <link rel="stylesheet" type="text/css"  href="{% static 'blog/search/css/search.css' %}">
+{% endblock %}
+
+{% block content_show %}
+
+     {% if query %}
+         <div class="search_show">
+            <div class="search_title">
+                <h4>查询结果
+                    <a href="{% url "myblog:mine" %}" style="color: gray"><i class="fa fa-chevron-right"></i></a>
+                </h4>
+
+            </div>
+
+            <ul>
+                {% for result in page.object_list %}
+                <li>
+                    <h5 style="font-size: 16px">
+                    <a href="{{ result.object.get_absolute_url }}">{{ forloop.counter }}.{% highlight result.object.title with query %}</a>
+
+                    </h5>
+
+                <p>{%  highlight result.object.content with query %}</p>
+
+                {% empty %}
+                <p>No results found.</p>
+                </li>
+                {% endfor %}
+                {% if page.has_previous or page.has_next %}
+                <div>
+                    {% if page.has_previous %}<a href="?q={{ query }}&page={{ page.previous_page_number }}">{% endif %}« Previous{% if page.has_previous %}</a>{% endif %}
+                    |
+                    {% if page.has_next %}<a href="?q={{ query }}&page={{ page.next_page_number }}">{% endif %}Next »{% if page.has_next %}</a>{% endif %}
+                </div>
+                {% endif %}
+                {% else %}
+{#            <p>Show some example queries to run, maybe query syntax, something else? </p>#}
+            </ul>
+
+
+
+
+
+         </div>
+
+        {% endif %}
+
+{% endblock %}
+{##}
+{#<!DOCTYPE html>#}
+{#<html lang="en">#}
+{#<head>#}
+{#    <meta charset="UTF-8">#}
+{#    <title>Title</title>#}
+{#    <style>#}
+{#    span.highlighted { color: red; }#}
+{#    </style>#}
+{#</head>#}
+{#<body>#}
+{#        <h2>Search</h2>#}
+{##}
+{#    <form method="get" action="/search/">#}
+{#        <table>#}
+{#            <tr>#}
+{#                <td>#}
+{#                    <input type="text" name = 'q' >#}
+{#                </td>#}
+{#                <td>#}
+{#                    <input type="submit" value="Search">#}
+{#                </td>#}
+{#            </tr>#}
+{#        </table>#}
+{##}
+{#
+{#    </form>#}
+{##}
+{#</body>#}
+{#</html>#}

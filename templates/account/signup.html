@@ -1,0 +1,32 @@
+{% extends "account/base.html" %}
+
+{% load i18n %}
+
+{% block head_title %}{% trans "注册页面" %}{% endblock %}
+
+{% block content %}
+{#<h1>{% trans "" %}</h1>#}
+{##}
+{#<p>{% blocktrans %}Already have an account? Then please <a href="{{ login_url }}">sign in</a>.{% endblocktrans %}</p>#}
+<form class="signup" id="signup_form" method="post" action="{% url 'account_signup' %}" onsubmit="return false">
+  {% csrf_token %}
+{#  {{ form.as_p }}#}
+{#  {% if redirect_field_value %}#}
+{#  <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />#}
+{#  {% endif %}#}
+{#  <button type="submit">{% trans "Sign Up" %} &raquo;</button>#}
+    <div class="form-group1">
+      <input type="text"  id="username" name="username" placeholder="请输入3-12位的用户名">
+      <input type="text"  id="password" name="password"  placeholder="请输入密码">
+      <input type="text"  id="password-again" name="password_again" placeholder="确认密码">
+    </div>
+    <button id="submit-signup" class="btn-primary">注册</button>
+</form>
+    <div class="error">
+        <p id="name-none">用户名已存在</p>
+        <p id="psw-error" >2次密码不一致</p>
+        <p id="psw-none" >密码不能为空</p>
+        <p id="name-error">请输入3-12位的用户名</p>
+    </div>
+
+{% endblock %}

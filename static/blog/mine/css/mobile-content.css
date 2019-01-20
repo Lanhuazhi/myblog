@@ -1,0 +1,46 @@
+.ranking-border-right h4{
+    display: none;
+}
+
+.article-content p{
+    font-size: 4px;
+}
+
+.ranking-border-left{
+    margin-right: 0;
+    width: 150px;
+    height: 100px;
+    background-size: contain;
+    background-repeat: no-repeat!important;
+    margin-left: 8%;
+}
+
+.ranking-border-left:hover{
+    margin-right: 0;
+    width: 150px;
+    height: 100px;
+    background-size: contain;
+    background-repeat: no-repeat!important;
+}
+
+.border-1 li {
+    margin-bottom: 0;
+}
+
+.border-1{
+    padding: 8px 8px 0 12px;
+}
+
+
+.article-mobile-title{
+    color: black;
+    display: inline-block;
+}
+
+.article-mobile-title:hover{
+    color: black;
+    text-decoration: none;
+}
+.ranking-entry-border-down{
+    display: none;
+}

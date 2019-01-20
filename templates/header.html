@@ -1,0 +1,75 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+     <link rel="stylesheet" type="text/css" href="{% static 'blog/home/css/reset.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'blog/home/css/bootstrap.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'blog/home/css/swiper.css' %}">
+    <link rel="stylesheet" href="/static/blog/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/static/blog/font_0a3epmh1saz4/iconfont.css">
+    <link rel="stylesheet" type="text/css" href="{% static 'blog/base/css/base.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'blog/header/css/header.css' %}">
+    <link rel="stylesheet" type="text/css" media="(max-width:768px)" href="{% static 'blog/home/css/mobile.css' %}">
+    {% block extCSS %}
+
+    {% endblock %}
+
+    <script type="text/javascript" charset="utf-8" src="{% static 'blog/home/js/jquery.js' %}"></script>
+    <script type="text/javascript" charset="utf-8" src="{% static 'blog/home/js/bootstrap.js' %}"></script>
+    <script type="text/javascript" charset="utf-8" src="{% static 'blog/home/js/swiper.jquery.js' %}"></script>
+    <script type="text/javascript" charset="utf-8" src="{% static 'blog/base/js/base.js' %}"></script>
+    <script type="text/javascript" charset="utf-8" src="{% static 'blog/header/js/header.js' %}"></script>
+    {% block extJS %}
+
+    {% endblock %}
+    <title>劉汝翹个人博客</title>
+</head>
+<body>
+    <div class="banner header" id="header-height">
+        <h1>
+            <a href="{% url "myblog:home" %}">Qiao</a>
+        </h1>
+        <div class="btn1 btn-default" id="message">
+            <i class="fa fa-align-justify fa-2x"></i>
+        </div>
+        <div class="btn1 btn-default1" id="winclose">
+            <i class="fa fa-window-close fa-2x"></i>
+        </div>
+    </div>
+    <div class="right-mobile-header search_mobile" id="a">
+                <div class="header-container">
+                    <div class="header-main">
+                        <img src="" alt="">
+                        <a href=""><img class="user-mobile-header" id="user-header" src="/static/blog/base/img/hdImg_61ce40236a0ddf771bef53a6df67595d15453808676.jpg" alt=""></a>
+                        <span><p>用户的名字</p></span>
+                    </div>
+                    <div class="header-information">
+                        <ul class="main-menu">
+                            <li><a href="{% url 'myblog:mine' %}"><i class="fa fa-home"></i>回到主页</a></li>
+                            <li><a href=""><i class="fa fa-spinner"></i>最近跟新</a></li>
+                            <li><a href="{% url 'myblog:mine' %}#my-article1"><i class="fa fa-file-text"></i>我的文章</a></li>
+                            <li><a href="{% url 'myblog:mine' %}#my-article2"><i class="fa fa-file-o"></i>我的笔记</a></li>
+                            <li><a href="{% url 'myblog:mine' %}#my-article3"><i class="fa fa-folder-open"></i>我的收藏</a></li>
+                            <li><a href="{% url 'myblog:mine' %}#my-article4"><i class="fa fa-bus"></i>生活随笔</a></li>
+                            {% if user.is_authenticated %}
+                            <li><a href="{% url 'myblog:login_out' %}"><i class="fa fa-sign-out"></i>退出登陆</a></li>
+                            {% endif %}
+                            <li><a href=""><i class="fa fa-gear"></i>个人设置</a></li>
+                            <li><a href=""><i class="fa fa-comments"></i>联系我</a></li>
+{#                            <div class="my-phone">#}
+                            <li>
+                                <a href="http://mail.qq.com/cgi-bin/qm_share"><i class="iconfont icon-youxiang"></i></a>
+                                <a href="https://weibo.com/2580661403/profile?topnav=1&wvr=6&is_all=1" style="color: red"><i class="iconfont icon-xinlang"></i></a>
+                            </li>
+{#                            </div>#}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+    {% block left-content %}
+
+    {% endblock %}
+</body>
+</html>

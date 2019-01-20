@@ -1,0 +1,15 @@
+{% extends 'header.html' %}
+{% load static %}
+
+{% block extCSS %}
+    <link rel="stylesheet" type="text/css" href="{% static 'error/error.css' %}">
+{% endblock %}
+
+{% block left-content %}
+    <div class="page_error">
+        <h3>很抱歉，页面未找到</h3>
+        <h3>o(╥﹏╥)o</h3>
+        <br>
+        <a href="{% url 'myblog:mine' %}">回到主页</a>
+    </div>
+{% endblock %}

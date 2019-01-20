@@ -1,0 +1,272 @@
+*{
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+@font-face {
+    font-family: neon;
+    src: url('/static/blog/home/NEON.TTF');
+}
+@font-face {
+    font-family: huahuaqianshou;
+    src: url('/static/blog/home/huahuaqianshou.TTF');
+}
+
+html, body {
+    width: 100%;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+
+}
+
+.max-header{
+	background: #FFF;
+	width: 100%;
+	margin: auto;
+	height: 10rem;
+	top: 0;
+	z-index:9;
+	position: fixed;
+	overflow: hidden;
+}
+
+.min-header{
+	position: fixed;
+	height: 6rem;
+	background: #FFF;
+	width: 100%;
+	margin: auto;
+	top: 0;
+	z-index:9;
+	overflow: hidden;
+}
+
+.max-header h1{
+	margin-left: 15rem;
+	float: left;
+	margin-top: 2.5rem;
+}
+
+.min-header h1{
+	margin-left: 15rem;
+	float: left;
+	margin-top: 1rem
+}
+
+.banner h1 a {
+	color: black;
+	font-family: neon;
+}
+
+.max-header h1 a{
+	font-size: 4rem;
+}
+
+.min-header h1 a{
+	font-size: 2.5rem;
+}
+
+.banner h1 p{
+	display: block;
+	font-family:"Times New Roman";
+
+}
+
+.max-header h1 p{
+	font-size: 1.5rem;
+}
+
+.min-header h1 p {
+	font-size: 0;
+}
+
+.navigation{
+	height: 100%;
+	width: 100%;
+}
+
+
+.btn-default,.btn-default1{
+	display:none;
+}
+
+.banner nav > ul {
+	display: block;
+	margin-right: 10rem;
+	float: right;
+
+}
+
+.max-header nav ul{
+	padding-top: 39px;
+}
+
+.min-header nav ul{
+	padding-top: 13px;
+}
+
+
+.banner nav li a,
+.banner li:before {
+	color: dimgray;
+	font-size: 1.5rem;
+	font-weight: 500;
+}
+
+/* 字间距*/
+.banner nav > ul > li {
+	margin: 0 1.8rem;
+	height: 81px;
+	display: inline-block;
+}
+.max-header nav > ul > li:last-child { margin-right: 0; }
+.max-header nav > ul > li > a {
+	display: block;
+	height: 81px;
+	padding: 14px 0 0;
+	box-sizing: border-box;
+	position: relative;
+}
+
+
+.min-header nav > ul > li:last-child { margin-right: 0; }
+.min-header nav > ul > li > a {
+	display: block;
+	height: 60px;
+	padding: 14px 0 0;
+	box-sizing: border-box;
+	position: relative;
+}
+
+.banner nav > ul > li > a:before {
+	content: "";
+	background: #333;
+	display: block;
+	width: 100%;
+	height: 0;
+	position: absolute;
+	left: 0;
+	bottom: 0;
+}
+.banner nav > ul > li:hover a:before {
+	height: 4px;
+}
+
+.banner nav li ul {
+	display: none;
+	width: 980px;
+	margin: auto;
+}
+.banner nav li ul li {
+	display: inline-block;
+	width: 245px;
+	position: relative;
+}
+.banner nav li ul li a {
+	display: inline-block;
+	padding: 10px 0;
+	font-weight: bold;
+}
+.banner nav li ul li a:hover {
+	color: #888;
+}
+
+.mobile-navigation{
+	display: none;
+}
+
+.main {
+	height: 550px;
+	width: 100%;
+	margin-top: 10rem;
+	background: center;
+	background-size: cover;
+	background-repeat: no-repeat;
+	margin-bottom: 0;
+}
+
+.main ul {
+	padding-top: 30rem;
+	float: right;
+	margin-right: 4rem;
+	display: block;
+}
+
+.main ul li a {
+	text-decoration: none;
+	color: gray;
+	font-size: 2rem;
+	padding: 0.2rem;
+	font-family: "Times New Roman";
+}
+
+.main ul li a i {
+	font-size: 0.5rem;
+}
+.main ul li a:hover{
+	color: white;
+}
+
+.min-main{
+	margin-top: 6rem;
+}
+
+.wrapper{
+	background-image: url("/static/blog/home/img/vis1_img_pc.jpg");
+}
+
+.myacticle{
+	width: 100%;
+	height: 36rem;
+	background: white;
+}
+.myacticle h2{
+	font-size: 2.4rem;
+	margin: 4rem 15rem;
+}
+
+.myacticle ul{
+	margin: 0 15rem;
+}
+
+.myacticle ul li {
+	border-bottom: dashed 1px black;
+}
+
+.myacticle ul li:hover {
+	background: black;
+}
+
+.myacticle ul li a:hover{
+	color: white;
+}
+
+.myacticle ul li a {
+	color: black;
+	text-decoration: none;
+	display: table;
+    width: 100%;
+    padding: 12px 20px 12px 0;
+    box-sizing: border-box;
+}
+
+.myacticle h2 span a{
+	display: none;
+}
+
+.footer{
+	padding: 5rem 0;
+	background: #eeeeee;
+	height: 100%;
+}
+
+.footer p {
+	text-align: center;
+	font-size: 2rem;
+	font-family:huahuaqianshou ;
+}

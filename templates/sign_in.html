@@ -1,0 +1,39 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>登陆</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'blog/sign_in/css/sign_in.css' %}">
+    <script type="text/javascript" charset="utf-8" src="{% static 'blog/home/js/jquery.js' %}"></script>
+    <script type="text/javascript" charset="utf-8" src="{% static 'blog/home/js/bootstrap.js' %}"></script>
+    <script type="text/javascript" charset="utf-8" src="{% static 'blog/home/js/swiper.jquery.js' %}"></script>
+    <script type="text/javascript" charset="utf-8" src="{% static 'blog/sign_in/js/sign_in.js' %}"></script>
+
+</head>
+<body>
+
+<div class="container">
+    <div class="header">
+            <a href="/">登陆</a>
+            <a href="/">注册</a>
+    </div>
+  <form  method="post" class="login-form" onsubmit="return false">
+    {% csrf_token %}
+    <div class="form-group1">
+      <input type="text"  id="username"  name="username" placeholder="请输入您的用户名">
+      <input type="text"  id="password" name="password" placeholder="密码">
+    </div>
+    <div class="form-check">
+      <label class="form-check-label">
+        <input class="form-check-input" type="checkbox"> 记住我
+      </label>
+    </div>
+    <button id="submit" class="btn-primary">登陆</button>
+  </form>
+    <div class="error">
+        <p id="name-psw-error">用户名或密码错误</p>
+     </div>
+</div>
+</body>
+</html>

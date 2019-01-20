@@ -1,0 +1,193 @@
+{% extends "header.html" %}
+
+{% load static %}
+
+{% block extCSS %}
+    <link rel="stylesheet" type="text/css" charset="utf-8" href="{% static 'blog/detail/css/detail.css' %}">
+    <link rel="stylesheet" type="text/css" charset="utf-8" href="{% static 'md_css/friendly.css' %}">
+{#    <link rel="stylesheet" type="text/css" charset="utf-8" media="(max-width:768px)" href="{% static 'blog/mine/css/ipad.css' %}">#}
+{#    <link rel="stylesheet" type="text/css" charset="utf-8" media="(max-width:450px)" href="{% static 'blog/mine/css/mobile-content.css' %}">#}
+{% endblock %}
+
+{% block extJS %}
+    <script type="text/javascript" charset="utf-8" src="{% static 'blog/detail/js/detail.js' %}"></script>
+{% endblock %}
+
+{% block left-content %}
+        <div class="article-detail-content">
+            <div class="cover parallax" style="background-image: url('/static/blog/detail/img/133article-detail.jpg')"></div>
+            <div class="backward">
+                <ul>
+                    <li><a href="#"><i class="fa fa-chevron-up"></i></a></li>
+                </ul>
+            </div>
+            <div class="article-paper-outside">
+                <div class="article-paper">
+                    <h3>{{ article.title }}</h3>
+                    <div class="author">
+                        <img class="author-picture" id="user-header" src="/static/blog/base/img/hdImg_61ce40236a0ddf771bef53a6df67595d15453808676.jpg" alt="">
+                        <span><a href=""><h5>劉汝翹</h5></a></span>
+                        <span> <a href=""><h5>{{ article.time }}</h5></a></span>
+                        <span><a href=""><h5>【{{ article.goupname }}】</h5></a></span>
+                    </div>
+                    <div class="line-direction line"></div>
+                    <div class="article-paper-content">
+                        <p>{{ article.content|safe }}</p>
+{#                        <img src="/static/uploads/editor/brand_img_pc_hiroko-bis_20190103115250914908.jpg " alt="">#}
+                        <h5 class="ariticle-paper-footer"><i class="fa fa-chevron-left"></i><i class="fa fa-chevron-right"></i></h5>
+                    </div>
+                </div>
+                <div class="article-comment" id="artice-coment">
+                    <div class="comment">
+                        <h4>文章评论</h4>
+                        <div class="line-direction line-1"></div>
+                        <span class="comment-tote">{{ commentcount }}人参与评论</span>
+                        <div class="show-comment">
+                           <div class="user-comment-header"  id="user-header-url" style="background-image: url('{{ userinfor }}')">
+                               <img class="author-picture" src="" alt="">
+                           </div>
+                            <div class="wrap">
+                                <form method="post" novalidate="novalidate" onsubmit="return false">
+                                    {% csrf_token %}
+                                    <div class="usercomment">
+                                        <textarea type="text" id="comment" name="comment"  placeholder="你有什么想对我说的呢"></textarea>
+                                        <div class="comment-smile">
+                                            <i class="fa fa-smile-o"></i>
+                                            <button id="btn-submit" type="submit"value="{{ article.id }}">发布</button>
+                                        </div>
+                                    </div>
+                                 </form>
+                            </div>
+                        </div>
+                        {% for foo in showcomentpage %}
+                            <div class="new-comment-list" id="comment-list">
+                               <div class="user" style="background-image: url('{{ foo.userinfo }}');
+    ">
+                                    <img class="author-picture" id="user-header" src="" alt="">
+                               </div>
+                                <div class="user-comment">
+                                    <ul>
+                                        <li >
+                                            <div class="user-click">
+                                                <div class="username" >
+                                                    <a  href="javascript:window.stop()"><h5>{{ foo.username }}</h5></a>
+                                                </div>
+                                                <div class="group-click">
+                                                    <section >
+                                                        <button href="javascript:window.stop()" class="click " value="{{ foo.id }}"><i class="fa fa-thumbs-o-up"></i></button>
+                                                        <span  id="onclick{{ foo.id }}">{{ foo.onclick }}</span>
+                                                    </section>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="comment-content">
+                                            <span>{{ foo.comment }}</span>
+                                        </li>
+                                        <li class="comment-footer">
+                                            <span class="comment-time">{{ foo.time }}&nbsp·&nbsp</span>
+                                            {% ifnotequal user.username foo.username%}
+                                                <div class="repy">
+                                                    <a href="javascript:window.stop()"><button class="comment-replay" id="replay{{ foo.id }}" style="color: black" value="{{ foo.id }}">回复</button></a>
+                                                    <a href="javascript:window.stop()"><button class="comment-replay-cancel" id="replay-cancel{{ foo.id }}" style="color: black" value="{{ foo.id }}">取消回复</button></a>
+                                                </div>
+                                            {% endifnotequal %}
+                                        </li>
+                                        <li class="visitor" id="{{ foo.id }}" value="{{ foo.id }}">
+                                            <div class="visitor-border">
+                                                <div class="visitor-wrap wrap subwrap" id="fathercomment{{ foo.id }}">
+                                                    <form  method="post" novalidate="novalidate" onsubmit="return false">
+                                                        {% csrf_token %}
+                                                        <div class="visitor-comment">
+                                                             <i class="fa fa-smile-o"></i>
+                                                            <textarea id="subcomment{{ foo.id }}" type="text" name="comment"  placeholder="@{{ foo.username }}"></textarea>
+                                                                 <div class="visitor-comment-btn">
+                                                                    <button class="subcomment-btn" id="sub-btn" type="submit" value="{{ foo.id }}">回复</button>
+                                                                 </div>
+                                                        </div>
+                                                     </form>
+                                                </div>
+                                                <div class="visitor-comment-list" id="comment-show{{ foo.id }}">
+                                                {% for comment in comment_list %}
+                                                    {% if comment.fathercomment_id == foo.id%}
+                                                            <div class="each-comment">
+                                                            <div class="user" style="background-image: url('{{ comment.subuserinfo }}')"></div>
+                                                            <div class="user-comment subcomment">
+                                                                <ul>
+                                                                    <li>
+                                                                         <div class="user-click">
+                                                                            <div class="username" >
+                                                                                <a  href="javascript:window.stop()"><h5>{{ comment.subusername }}</h5></a>
+                                                                            </div>
+                                                                            <div class="group-click">
+                                                                                <section >
+                                                                                    <button href="javascript:window.stop()" class="subclick " value="{{ comment.id }}"><i class="fa fa-thumbs-o-up"></i></button>
+                                                                                    <span  id="onclick{{ comment.id }}">{{ comment.onclick }}</span>
+                                                                                </section>
+                                                                            </div>
+                                                                        </div>
+                                                                    </li>
+                                                                    <li class="comment-content">
+                                                                        <div style="font-size: 12px"><span style="color: lightskyblue">@{{ comment.returneduser }}:</span>&nbsp&nbsp{{ comment.subcomment }}</div>
+                                                                    </li>
+                                                                    <li class="comment-footer">
+                                                                        <span class="comment-time" style="color: gray">{{ comment.time }}&nbsp· &nbsp</span>
+                                                                        {% ifnotequal user.username comment.subusername%}
+                                                                        <div class="repy">
+                                                                            <a href="javascript:window.stop()"><button class="subcomment-replay" id="replay{{ comment.id }}" style="color: black;background: lavender" value="{{ comment.id }}">回复</button></a>
+                                                                            <a href="javascript:window.stop()"><button class="subcomment-replay-cancel" id="replay-cancel{{ comment.id }}" style="color: black;background: lavender" value="{{ comment.id }}">取消回复</button></a>
+                                                                        </div>
+                                                                        {% endifnotequal %}
+                                                                    </li>
+                                                                </ul>
+                                                            </div>
+                                                            <div class="visitor-wrap subcommentwrap" id="subcommentwrap{{ comment.id }}">
+                                                                <form  method="post" novalidate="novalidate" onsubmit="return false">
+                                                                    {% csrf_token %}
+                                                                    <div class="visitor-comment ">
+                                                                         <i class="fa fa-smile-o"></i>
+                                                                        <textarea id="subcomment{{ comment.id }}" type="text" name="comment"  placeholder="@{{ comment.subusername }}"></textarea>
+                                                                        <div class="visitor-comment-btn">
+                                                                                <button class="subcomment-btn-2" id="sub-btn" type="submit" value="{{comment.id}}">回复</button>
+                                                                        </div>
+                                                                    </div>
+                                                                 </form>
+                                                            </div>
+                                                        </div>
+                                                    {% endif %}
+                                                {% endfor %}
+                                            </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                             </div>
+                        {% endfor %}
+{#                    <div  class="page" >#}
+{#                        <ul class="pagination">#}
+{#                            {% if showcomentpage.has_previous %}#}
+{#                                <li><a href="#">&laquo;</a></li>#}
+{#                            {% endif %}#}
+{#                            {% for item in showcomentpage.paginator.page_range %}#}
+{#                                <li><a href="?page={{ item }}">{{ item }}</a></li>#}
+{#                            {% endfor %}#}
+{##}
+{#                            {% if showcomentpage.has_next %}#}
+{#                                 <li><a href="#">&raquo;</a></li>#}
+{#                            {% endif %}#}
+{#                        </ul>#}
+{#                    </div>#}
+                    <div class="page">
+                        <ul>
+                            {% if showcomentpage.has_previous %}
+                                <li><a href="?page={{ showcomentpage.previous_page_number }};#artice-coment"><i class="fa fa-chevron-up"></i></a></li>
+                            {% endif %}
+                            {% if showcomentpage.has_next %}
+                                <li><a href="?page={{ showcomentpage.next_page_number }};#artice-coment"><i class="fa fa-chevron-down"></i></a></li>
+                            {% endif %}
+                        </ul>
+                    </div>
+                    </div>
+                </div>
+             </div>
+        </div>
+{% endblock %}

@@ -1,0 +1,99 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name=renderer content=webkit>
+    <title>劉汝翹个人博客</title>
+    {# 配置移动端页面需要的标签meta #}
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    {# 关联css文件 #}
+    <link rel="stylesheet" type="text/css" href="{% static 'blog/home/css/reset.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'blog/home/css/bootstrap.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'blog/home/css/swiper.css' %}">
+    <link rel="stylesheet" href="/static/blog/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="{% static 'blog/home/css/home.css' %}">
+    <link rel="stylesheet" type="text/css" media="(max-width:768px)" href="{% static 'blog/home/css/mobile.css' %}">
+    {# 其他页面引入css #}
+{#    {% block extCSS %}#}
+{##}
+{#    {% endblock %}#}
+
+    {# 关联js文件 #}
+    <script type="text/javascript" charset="utf-8" src="{% static 'blog/home/js/jquery.js' %}"></script>
+    <script type="text/javascript" charset="utf-8" src="{% static 'blog/home/js/bootstrap.js' %}"></script>
+    <script type="text/javascript" charset="utf-8" src="{% static 'blog/home/js/swiper.jquery.js' %}"></script>
+    <script type="text/javascript" charset="utf-8" src="{% static 'blog/home/js/home.js' %}"></script>
+</head>
+<body>
+    <div class="banner max-header" id="header-height">
+        <h1>
+            <a href="/">Qiao</a>
+            <p>welcome to my blog</p>
+        </h1>
+        <nav class="navigation">
+            <ul>
+                <li>
+                    <a href="/mine/" >主页</a>
+                </li>
+                <li>
+                    <a href="{% url 'myblog:mine' %}#my-article1">文章</a>
+                </li>
+                <li>
+                    <a href="{% url 'myblog:mine' %}#my-article2">笔记</a>
+                </li>
+                <li>
+                    <a href="{% url 'myblog:mine' %}#my-article3">收藏</a>
+                </li>
+                <li><a href="{% url 'myblog:mine' %}#my-article4">生活</a></li>
+            </ul>
+        </nav>
+        <div class="btn1 btn-default" id="message">
+            <i class="fa fa-align-justify fa-2x"></i>
+        </div>
+         <div class="btn1 btn-default1" id="winclose">
+            <i class="fa fa-window-close fa-2x"></i>
+         </div>
+    </div>
+    <div class="mobile-navigation" id="message-box">
+        <li><a href="/mine/">主页</a></li>
+        <li><a href="{% url 'myblog:mine' %}#my-article1">文章</a></li>
+        <li><a href="{% url 'myblog:mine' %}#my-article2">笔记</a></li>
+        <li><a href="{% url 'myblog:mine' %}#my-article3">收藏</a></li>
+        <li><a href="{% url 'myblog:mine' %}#my-article4">生活</a></li>
+    </div>
+    <div class="main wrapper" id="min-main">
+        <ul>
+            {% if not user.is_authenticated %}
+            <li><a href="/accounts/login">sign in &nbsp <i class="fa fa-chevron-circle-right"></i></a></li>
+            <li><a href="/accounts/signup">sign up &nbsp <i class="fa fa-chevron-circle-right"></i></a></li>
+             {% else %}{# User 在模版中检验用户是否已经登录了 #}
+                <li><a href="{% url 'myblog:login_out' %}">sign out &nbsp <i class="fa fa-chevron-circle-right"></i></a></li>
+            {% endif %}
+        </ul>
+    </div>
+    <div class="myacticle">
+        <h2>
+            My New Articles
+            <span>
+                <a href="/accounts/login">sign in <i class="fa fa-angle-double-right"></i></a>
+            </span>
+        </h2>
+        <ul>
+            {% for foo in article %}
+                <li>
+                <a href="{% url 'myblog:detail' foo.id%}">
+                    {{ foo.title }}
+                </a>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+    <div class="footer">
+        <p>人生的磨难是很多的， 所以我们不可</p>
+        <P> 对于每一件轻微的伤害都过于敏感。 在生活磨难面前，</P>
+        <P> 精神上的坚强和无动于衷是我们抵抗罪恶和人生意外 的最好武器。 —— 洛克</p>
+    </div>
+</body>
+</html>

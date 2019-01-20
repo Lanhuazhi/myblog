@@ -1,0 +1,50 @@
+{% extends "bases.html" %}
+{% load static %}
+
+{% block extCSS %}
+    <link rel="stylesheet" type="text/css" charset="utf-8" href="{% static 'blog/article/css/article.css' %}">
+    <link rel="stylesheet" type="text/css" charset="utf-8" href="{% static 'blog/mine/css/mine.css' %}">
+     <link rel="stylesheet" type="text/css" charset="utf-8" media="(max-width:768px)" href="{% static 'blog/mine/css/ipad.css' %}">
+    <link rel="stylesheet" type="text/css" charset="utf-8" media="(max-width:450px)" href="{% static 'blog/mine/css/mobile-content.css' %}">
+{% endblock %}
+
+{% block right-content %}
+    <div class="right-content article-contents">
+        <ul class="detail-content">
+            <li class="article-tag">
+                <h4>{{ name }}</h4>
+            </li>
+
+            <div class="contain">
+                {% for article in detail_show %}
+                    <div  class="article-border ranking-list-1 article">
+                    <ul>
+                        <li class="ranking-entry-border clearfix">
+                            <div class="ranking-entry-border-up">
+                                <a href="{% url "myblog:detail" article.id %}"><div class="ranking-border-left" style="background-image: url('/media/{{ article.articleimage }}')"><img src="" alt=""></div></a>
+                                <div class="ranking-border-right" id="article">
+                                    <h4><a href="{% url "myblog:detail" article.id %}" class="article-title">{{ article.title }}</a></h4>
+                                     <h5><a href="{% url "myblog:detail" article.id %}" class="article-mobile-title">{{ article.title }}</a></h5>
+                                    {% if article.abstract %}
+                                        <div class="article-content"><p>{{ article.abstract|truncatechars:300 }}</p></div>
+                                    {% else %}
+                                        <div class="article-content"><p>{{ article.content|safe|truncatechars:300}}</p></div>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </li>
+                        <li class="border-footer">
+                            <span><i class="fa fa-eye">&nbsp浏览({{ article.views }})&nbsp&nbsp&nbsp</i></span>
+{#                            <span><i class="fa fa-thumbs-o-up">&nbsp点赞数&nbsp&nbsp&nbsp</i></span>#}
+                            <span><i class="fa fa-comments-o">&nbsp评论({{ article.articlecomments }})&nbsp&nbsp&nbsp</i></span>
+                        </li>
+                    </ul>
+                </div>
+                {% endfor %}
+
+            </div>
+
+        </ul>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,82 @@
+{% extends "header.html" %}
+
+{% block left-content %}
+    <div class="content">
+        <div class="persinal-information">
+            <div class="head-shot">
+                <img src="" alt="">
+            </div>
+            <h4>劉汝翹个人博客</h4>
+            <ul >
+                <div class="information">
+                    <li><a href="{% url 'myblog:mine' %}#ranking-list"><i class="fa fa-spinner">&nbsp&nbsp&nbsp&nbsp&nbsp  最近更新</i></a></li>
+                    <li><a href="{% url 'myblog:mine' %}#my-article3"><i class="fa fa-folder-open">&nbsp&nbsp&nbsp&nbsp&nbsp  我的收藏</i></a></li>
+                    <li><a href="{% url 'myblog:mine' %}#my-article2"><i class="fa fa-file-o">&nbsp&nbsp&nbsp&nbsp&nbsp  我的笔记</i></a></li>
+                    <li><a href="{% url 'myblog:mine' %}#my-article1" id="my_aricle"><i class="fa fa-file-text">&nbsp&nbsp&nbsp&nbsp&nbsp  我的文章</i></a></li>
+                    <li><a href="{% url 'myblog:mine' %}#my-article4"><i class="fa fa-bus">&nbsp&nbsp&nbsp&nbsp&nbsp  生活随笔</i></a></li>
+                    <li><a href=""><i class="fa fa-gear">&nbsp&nbsp&nbsp&nbsp&nbsp  个人设置</i></a></li>
+                    <li><a href=""><i class="fa fa-comments">&nbsp&nbsp&nbsp&nbsp&nbsp  联系我</i></a></li>
+                </div>
+                <div class="my-phone">
+                    <li>
+                        <a id="weixin" href="" style="color: green" data-toggle="popover" data-placement="top"><i class="iconfont icon-weixinzhifu"></i></a>
+                        <a  id="qq" href="" style="color: skyblue" data-toggle="popover" data-placement="top"><i class="iconfont icon-qq"></i></a>
+                        <a href="http://mail.qq.com/cgi-bin/qm_share" style="color: black"><i class="iconfont icon-youxiang"></i></a>
+                        <a href="https://weibo.com/2580661403/profile?topnav=1&wvr=6&is_all=1" style="color: red"><i class="iconfont icon-xinlang"></i></a>
+                    </li>
+                </div>
+            </ul>
+            <div class="widget-box widget wow fadeInDown" id="hottags">
+                <h5 class="widget-title"><i class="fa fa-tags">&nbsp&nbsp&nbsp&nbsp&nbsp 标签云</i></h5>
+                <ul class="widget-content hottags">
+                    {% for tags in tags_show %}
+                        <li class="tags"
+                           {% if tags.articles_set.count == 0%}
+                               style="background-color: #f8f8f8;padding: 0.4rem"
+                            {% elif tags.articles_set.count <= 2%}
+                                style="background-color: #7dd0f7;padding: 0.5rem"
+                            {% elif tags.articles_set.count <= 5%}
+                                style="background-color: #4cae4c;padding: 0.6rem"
+                            {% elif tags.articles_set.count <= 8%}
+                                style="background-color: #bb60d5;padding: 0.7rem"
+                            {% elif tags.articles_set.count <= 12%}
+                                style="background-color: #ffff00;padding: 0.8rem"
+                            {% elif tags.articles_set.count <= 18%}
+                                style="background-color: #FF0000;padding: 0.9rem"
+                            {% elif tags.articles_set.count <= 30%}
+                                style="background-color: #e4b9c0;padding: 1rem"
+                           {% endif %}>
+                            <a href="{% url "myblog:article" tags.id 0%}">
+                            {{ tags.name }}
+                                {% if tags.articles_set.count %}
+                                    ({{ tags.articles_set.count }})
+                                {% endif %}
+
+                            </a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <div class="time-box widget">
+                <h5 class="widget-title"><i class="fa fa-bar-chart-o">&nbsp&nbsp&nbsp&nbsp&nbsp 时间曲线</i></h5>
+                <ul >
+                    {% for time in data_time_list %}
+                          <li><a href="{% url 'myblog:article' 0 0%}?year={{ time.year }}&month={{ time.month }}">{{ time.year }}年{{ time.month }}月({{ time.count }})</a></li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <div class="new-comment widget">
+                <h5 class="widget-title"><i class="fa fa-comments-o">&nbsp&nbsp&nbsp&nbsp&nbsp 最新评论</i></h5>
+                <ul>
+                    {% for foo in new_comment %}
+                        <li><span><a href="{% url "myblog:detail" foo.article_id%}"><i class="fa fa-commenting"></i></a></span><p><a href="{% url "myblog:detail" foo.article_id%}">{{ foo.comment|truncatechars:15}}</a></p><small>{{ foo.username |truncatechars:5}}   评论于：{{ foo.time}}</small></li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+        {% block right-content %}
+
+        {% endblock %}
+    </div>
+{% endblock %}
+

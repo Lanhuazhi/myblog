@@ -1,0 +1,216 @@
+
+.right-content{
+    width: 70%;
+    float:right;
+}
+
+.detail-content{
+    margin: 5rem 5rem 5rem 12rem;
+}
+
+.visitor{
+    display: block;
+    width: 100%;
+    margin-bottom: 5rem;
+    overflow: hidden;
+    height: 50px;
+}
+
+.leads{
+    float: left;
+    width: 60%;
+    height: 50px;
+    margin-left: 10%;
+    padding: 4px;
+    margin-right: 2rem;
+}
+
+.leads div{
+    width: 100%;
+    overflow: hidden;
+    margin-top: 10px;
+    height: 30px;
+    border-radius: 10px;
+    background: white;
+}
+
+.leads i{
+    position: absolute;
+    float: left;
+    margin: 6px;
+
+}
+
+.barrage{
+    display: block;
+    padding: 4px 0;
+    position: relative;
+    left: 30px;
+}
+
+.search{
+    display: none;
+    margin-left: 3rem;
+    width: 92%;
+}
+
+.search-content{
+
+    text-align: center;
+    width: 75%;
+    height: 30px;
+    border: none;
+}
+
+.search-button{
+    height:30px;
+    width:25%;
+    float: right;
+    background:  #fafafa;
+    border: none;
+
+}
+
+/* 游客头像*/
+#user-header {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+
+.detail-article {
+    width: 100%;
+}
+
+.detail-article{
+    background: white;
+    margin-bottom: 2rem;
+}
+
+.title {
+    padding: 1rem;
+    height: 5rem;
+    background: #fafafa;
+}
+
+.detail-title{
+    float: left;
+}
+
+.detail-article ul{
+    padding-bottom: 0.5rem;
+}
+
+.detail-button{
+    display:block;
+}
+
+.detail-button-1{
+    display:none;
+}
+
+.detail-button p{
+    float: right;
+    margin-right: 2rem;
+    border: 1px #eee solid;
+    background-color: #eee;
+    padding: 2px 0.5rem;
+    font-size: 4px;
+    border-radius: 8px;
+}
+
+
+
+.detail-button p:hover{
+    background-color:gray;
+    transition-duration: 2s;
+    color: white;
+}
+
+.title a{
+    margin-left: 2rem;
+    text-decoration: none;
+    color: black;
+}
+
+.border-1{
+    overflow: hidden;
+    padding: 1.5rem 1.5rem 0 1.5rem;
+    border-radius: 25px;
+    border: 0 solid #F3F3F3;
+    background-color: #f3f7fb;
+    margin: 1rem ;
+
+}
+
+.ranking-entry-border-up{
+    padding: 4px;
+    margin-bottom: 1px;
+}
+
+.ranking-border-left{
+    margin-right: 2rem;
+    float: left;
+    border: 0 solid #F3F3F3;
+    height: 145px;
+    width: 240px;
+}
+
+.border-1 li{
+    margin-bottom: 1rem;
+}
+
+
+.ranking-border-right h4{
+    display: block;
+    height: 18px;
+    overflow: hidden;
+
+}
+
+.article-title{
+    color: black;
+
+}
+
+.article-mobile-title{
+    display: none;
+}
+
+.article-title:hover{
+    color: black;
+     text-decoration: none;
+}
+
+.article-content p {
+    display: block;
+    color: gray;
+}
+
+.ranking-entry-border-down{
+    border-top: dashed 1px gray;
+    padding: 4px;
+    height: 2.1rem;
+    overflow: hidden;
+}
+
+.ranking-entry-border-down a{
+    color: gray;
+    text-decoration: none;
+}
+
+/*#border{*/
+    /*display: none;*/
+/*}*/
+
+#my-article{
+    display: none;
+}
+#my-notebook{
+    display: none;
+}
+
+#my-collect{
+    display: none;
+}

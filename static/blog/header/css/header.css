@@ -1,0 +1,78 @@
+
+/* 侧边菜单栏*/
+
+.right-mobile-header{
+    z-index: 99999;
+    margin-top: 1rem;
+    width: 60%;
+    position: fixed;
+    background-color: white;
+    right: -65%;
+}
+
+.header-container{
+
+}
+
+.header-main{
+    background-image: url("/static/blog/mine/img/Screenshot_2018-12-24-21-34-18-852_com.android.th.png");
+    background-size: cover!important;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 45%;
+    position: absolute;
+
+}
+
+.user-mobile-header{
+    margin-top: 6rem;
+    margin-left: 1rem;
+}
+
+.header-main span p{
+    margin-left: 1rem;
+    color:snow;
+    margin-top:5px;
+}
+
+.header-information{
+    position: relative;
+    top: 13rem;
+    z-index: 999;
+    width: 100%;
+}
+
+.header-information ul li {
+    padding: 0.6rem 2rem;
+    border-bottom:2px
+}
+
+.header-information ul li a{
+    color: black;
+}
+
+.header-information ul li a:hover{
+       color: white;
+}
+
+.header-information ul li:hover {
+    padding: 0.6rem 4rem;
+    background-color: black;
+    transition-duration: 3s;
+}
+
+.header-information ul li i{
+    margin-right: 2rem;
+}
+
+.main-menu{
+    border-radius: 15px;
+    background-color: white;
+    padding: 1rem;
+}
+
+#user-header {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}

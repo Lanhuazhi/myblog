@@ -1,0 +1,37 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>登陆</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'blog/sign_in/css/sign_in.css' %}">
+    <script type="text/javascript" charset="utf-8" src="{% static 'blog/home/js/jquery.js' %}"></script>
+    <script type="text/javascript" charset="utf-8" src="{% static 'blog/home/js/bootstrap.js' %}"></script>
+    <script type="text/javascript" charset="utf-8" src="{% static 'blog/home/js/swiper.jquery.js' %}"></script>
+    <script type="text/javascript" charset="utf-8" src="{% static 'blog/sign_in/js/sign_up.js' %}"></script>
+</head>
+<body>
+
+<div class="container">
+    <div class="header">
+            <a href="{% url 'myblog:sign_in' %}">登陆</a>
+            <a href="{% url 'myblog:sign_up' %}">注册</a>
+    </div>
+  <form  method="post" novalidate="novalidate2" onsubmit="return false">
+    {% csrf_token %}
+    <div class="form-group1">
+      <input type="text"  id="username" name="username" placeholder="请输入3-12位的用户名">
+      <input type="text"  id="password" name="password"  placeholder="请输入密码">
+      <input type="text"  id="password-again" name="password_again" placeholder="确认密码">
+    </div>
+    <button id="submit-signup" class="btn-primary">注册</button>
+  </form>
+    <div class="error">
+        <p id="name-none">用户名已存在</p>
+        <p id="psw-error" >2次密码不一致</p>
+        <p id="psw-none" >密码不能为空</p>
+        <p id="name-error">请输入3-12位的用户名</p>
+    </div>
+</div>
+</body>
+</html>

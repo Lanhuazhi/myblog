@@ -1,0 +1,40 @@
+{% extends "bases.html" %}
+
+{% load static %}
+
+{% block extCSS %}
+    <link rel="stylesheet" type="text/css" charset="utf-8" href="{% static 'blog/mine/css/mine.css' %}">
+    <link rel="stylesheet" type="text/css" charset="utf-8" media="(max-width:768px)" href="{% static 'blog/mine/css/ipad.css' %}">
+    <link rel="stylesheet" type="text/css" charset="utf-8" media="(max-width:450px)" href="{% static 'blog/mine/css/mobile-content.css' %}">
+    {% block searchCSS %}
+    
+    {% endblock %}
+{% endblock %}
+
+{% block extJS %}
+    <script type="text/javascript" charset="utf-8" src="{% static 'blog/mine/js/mine.js' %}"></script>
+{% endblock %}
+
+{% block right-content %}
+    <div class="right-content">
+            <div class="detail-content">
+                <div class="visitor">
+                <div class="leads search-lead">
+                    <div id="leads-1">
+                        <i class="fa fa-search"></i>
+                        <marquee behavior="left" class="barrage search-barage" id="welcome">欢迎  {{ user.username }}  拜访我的个人博客.....</marquee>
+                        <form action="/search/"method="get" type="get" class="search" id="find">
+                            <input type="text" class="search-content" name="q">
+                            <input type="submit" class="search-button" value="搜索">
+                        </form>
+                    </div>
+                </div>
+                <a href=""><img id="user-header" src="{{ userinfor }}" alt=""></a>
+            </div>
+            {% block content_show %}
+
+            {% endblock %}
+            </div>
+        </div>
+
+{% endblock %}

@@ -1,0 +1,41 @@
+{#{% extends "base.html" %}#}
+{% load static %}
+
+{% load account socialaccount %}
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name=renderer content=webkit>
+  <title>登陆</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'blog/sign_in/css/sign_in.css' %}">
+    <link rel="stylesheet" href="/static/blog/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/static/blog/font_0a3epmh1saz4/iconfont.css">
+    <link rel="stylesheet" href="/static/blog/font_gnnnivxrpc/iconfont.css">
+    <script type="text/javascript" charset="utf-8" src="{% static 'blog/home/js/jquery.js' %}"></script>
+    <script type="text/javascript" src="{% static 'blog/home/js/jquery.cookie.js' %}"></script>
+    <script type="text/javascript" charset="utf-8" src="{% static 'blog/home/js/bootstrap.js' %}"></script>
+    <script type="text/javascript" charset="utf-8" src="{% static 'blog/home/js/swiper.jquery.js' %}"></script>
+    <script type="text/javascript" charset="utf-8" src="{% static 'blog/sign_in/js/sign_in.js' %}"></script>
+    <script type="text/javascript" charset="utf-8" src="{% static 'blog/sign_in/js/sign_up.js' %}"></script>
+</head>
+<body>
+
+<div class="container">
+    <div class="header">
+            <a href="{{ login_url }}">登陆</a>
+            <a href="{{ signup_url }}">注册</a>
+    </div>
+    {% block content %}
+
+    {% endblock %}
+    <div class="third-party-login">
+        <ul class="socialaccount_providers">
+            <li><a href="{% provider_login_url "github" %}"><i style="color: purple" class="fa fa-github fa-2x"></i></a></li>
+            <li><a href="{% provider_login_url "baidu" %}"><i  style="font-size: 32px;color:lightskyblue" class="iconfont icon-baidu1"></i></a></li>
+            <li><a href="{% provider_login_url "weibo" %}"><i style="color: red" class="fa fa-weibo fa-2x"></i></a></li>
+        </ul>
+    </div>
+</div>
+</body>
+</html>

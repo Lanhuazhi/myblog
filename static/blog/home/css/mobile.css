@@ -1,0 +1,123 @@
+.banner{
+    height: 5rem;
+    overflow: auto;
+}
+
+.banner h1 {
+    margin-top: 0.7rem;
+    margin-left: 3rem;
+    float: left;
+}
+
+.banner h1 a {
+
+    font-size: 2.5rem;
+}
+
+.banner h1 p {
+    display: none;
+    font-size: 0;
+}
+
+.navigation{
+    display: none;
+}
+
+.main {
+    margin-top: 0;
+}
+
+.main ul {
+    display: none;
+}
+
+.wrapper{
+    background-image: url("/static/blog/home/img/vis1_img_sp.jpg");
+}
+
+.btn1{
+    float: right;
+    margin-right: 2rem;
+    margin-top: 1rem;
+    border-width: 0;
+}
+
+.btn-default {
+    display:inline-block;
+}
+
+
+.btn-default1{
+    display: none;
+}
+
+.mobile-navigation{
+    display: none;
+    margin-top: 5rem;
+    background: white;
+    width: 100%;
+}
+
+.mobile-navigation li {
+    list-style: none;
+    border-top: dotted 1px #7F7F7F;
+    padding:1rem;
+}
+.mobile-navigation li a{
+    margin-left: 3rem;
+    color: black;
+    text-decoration: none;
+    font-size: 1.5rem;
+}
+
+.myacticle{
+    height: 30rem;
+}
+
+.myacticle h2{
+    margin: 3rem 3rem;
+    font-size: 2rem;
+}
+
+.myacticle ul {
+    margin: 0 3rem;
+}
+
+.myacticle h2 span{
+    border:solid 1px gray;
+    float: right;
+}
+
+.myacticle h2 span:hover{
+  background: black;
+}
+
+.myacticle h2 span a {
+    display: inline-block;
+    color: gray;
+    text-decoration: none;
+    font-size: 1.5rem;
+    padding: 0.5rem 1rem;
+}
+
+.myacticle h2 span a:hover{
+    color: white;
+}
+
+.footer{
+    padding: 3rem 3rem;
+}
+
+.footer p{
+    text-align: left;
+    font-size: 1.5rem;
+}
+
+
+/*base 部分 */
+
+.persinal-information{
+    display: none;
+}
+
+

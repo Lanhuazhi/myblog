@@ -1,0 +1,27 @@
+.article-tag{
+    background: white;
+    border-radius: 15px;
+
+}
+.article-tag h4{
+    line-height: 4rem;
+    text-align: center;
+
+}
+
+.contain{
+    margin-top: 3rem;
+    padding-bottom: 1rem;
+    background: white;
+}
+
+.article{
+    padding: 1rem;
+    background: white;
+
+}
+
+.border-footer{
+    padding: 1rem 0;
+    border-bottom: dashed 1px gray;
+}

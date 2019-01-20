@@ -1,0 +1,62 @@
+{% extends "account/base.html" %}
+
+{% load i18n %}
+{% load account socialaccount %}
+
+{% block head_title %}{% trans "登录页面" %}{% endblock %}
+
+{% block content %}
+
+{#<h1>{% trans "Sign In" %}</h1>#}
+
+{% get_providers as socialaccount_providers %}
+
+
+
+<form class="login" method="post" action="{% url 'account_login' %}" onsubmit="return false">
+  {% csrf_token %}
+{#  {{ form.as_p }}#}
+    <div class="form-group1">
+      <input  type="text"  id="username"  name="username" placeholder="请输入您的用户名">
+      <input type="text"  id="password" name="password" placeholder="密码">
+    </div>
+    <div class="form-check">
+      <label class="form-check-label">
+        <input class="form-check-input" type="checkbox"> 记住我
+      </label>
+    </div>
+    <button id="submit" class="btn-primary">登陆</button>
+{#  {% if redirect_field_value %}#}
+{#  <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />#}
+{#  {% endif %}#}
+{#  <a class="button secondaryAction" href="{% url 'account_reset_password' %}">{% trans "Forgot Password?" %}</a>#}
+{#  <button class="primaryAction" type="submit">{% trans "Sign In" %}</button>#}
+</form>
+        <div class="error">
+        <p id="name-psw-error">用户名或密码错误</p>
+        </div>
+
+{#    #是否需要第三方的社交账号登录，为真就执行#}
+{#{% if socialaccount_providers %}#}
+{#<p>{% blocktrans with site.name as site_name %}选择登录 <a href="{{ signup_url }}">sign up</a>#}
+{#for a {{ site_name }} account and sign in below:{% endblocktrans %}</p>#}
+{##}
+{#<div class="socialaccount_ballot">#}
+{##}
+{#  <ul class="socialaccount_providers">#}
+{#      <a href="{% provider_login_url "github" %}"><i class="fa fa-github"> </i> </a>#}
+{#      <li><i  style="color: black" class="fa fa-git fa-2x"></i></li>#}
+{#  </ul>#}
+{##}
+{#  <div class="login-or">{% trans 'or' %}</div>#}
+{##}
+{#</div>#}
+{##}
+{#{% include "socialaccount/snippets/login_extra.html" %}#}
+{##}
+{#{% else %}#}
+{#<p>{% blocktrans %}If you have not created an account yet, then please#}
+{#<a href="{{ signup_url }}">sign up</a> first.{% endblocktrans %}</p>#}
+{#{% endif %}#}
+
+{% endblock %}

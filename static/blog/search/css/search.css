@@ -1,0 +1,40 @@
+
+span.highlighted {
+    color: red;
+}
+
+.search_show{
+    margin-top: 2rem;
+}
+.search_show h4{
+    line-height: 3.5rem;
+    padding-left: 1rem;
+    background: #fafafa;
+}
+
+.search_show h4 i{
+    float: right;
+    padding: 1rem;
+}
+
+.search-barage{
+    display: none;
+}
+
+.search{
+    display: block;
+}
+
+.search-lead{
+    margin-left: 18%;
+}
+
+.search_show ul{
+    padding: 1rem;
+    background: white;
+
+}
+
+.search_show ul li{
+    padding: 0.5rem 0;
+}

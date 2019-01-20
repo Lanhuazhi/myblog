@@ -1,0 +1,76 @@
+{% extends "mine.html" %}
+{% load static %}
+
+
+
+{% block content_show %}
+
+    <div class="detail-article" id="ranking-list">
+                <ul>
+                    <div class="title">
+                        <h4 ><a href="" class=" detail-title">最近更新</a></h4>
+                    </div>
+                    {% for ranking in article_ranking %}
+                        <div  class="border-1 ranking-list-1">
+                    <li class="ranking-entry-border clearfix">
+                        <div class="ranking-entry-border-up">
+                            <a href="{% url "myblog:detail" ranking.id %}"><div class="ranking-border-left" style="background-image: url('/media/{{ ranking.articleimage }}');"><img src="" alt=""></div></a>
+                            <div class="ranking-border-right" id="article">
+                                <h4><a href="{% url "myblog:detail" ranking.id %}" class="article-title">{{ ranking.title }}</a></h4>
+                                 <h5><a href="{% url "myblog:detail" ranking.id %}" class="article-mobile-title">{{ ranking.title }}</a></h5>
+                                    {% if ranking.abstract %}
+                                        <div class="article-content"><p>{{ ranking.abstract|truncatechars:300 }}</p></div>
+                                    {% else %}
+                                        <div class="article-content"><p>{{ ranking.content|safe|truncatechars:300}}</p></div>
+                                    {% endif %}
+                            </div>
+                        </div>
+                    </li>
+                    <li class="ranking-entry-border-down">
+                        <span><i class="fa fa-eye">&nbsp浏览({{ ranking.views}})&nbsp&nbsp&nbsp</i></span>
+{#                        <span><i class="fa fa-thumbs-o-up">&nbsp点赞数&nbsp&nbsp&nbsp</i></span>#}
+                        <span><i class="fa fa-comments-o">&nbsp评论({{ ranking.articlecomments }})&nbsp&nbsp&nbsp</i></span>
+                    </li>
+                    </div>
+                    {% endfor %}
+
+                </ul>
+            </div>
+
+    {% for article_type in article_types %}
+                <div class="detail-article" id="my-article{{ forloop.counter }}">
+                <ul>
+                    <div class="title">
+                        <h4 ><a href="" id="ranking-list" class=" detail-title">{{ article_type.group_name.group}}</a></h4>
+                        <a class="detail-button" href="{% url 'myblog:article' 0 article_type.group_name.id%}"> <p>查看更多&nbsp<i class="fa fa-angle-right"></i></p></a>
+                    </div>
+                    {% for article in article_type.group_name_article %}
+                         <div  class="border-1 my-article-1" id="border">
+                            <li class="ranking-entry-border clearfix">
+                            <div class="ranking-entry-border-up">
+                                <a href="{% url "myblog:detail" article.id %}"><div class="ranking-border-left" style="background-image: url('/media/{{ article.articleimage }}');"><img src="" alt=""></div></a>
+                                <div class="ranking-border-right" id="article">
+                                    <h4><a href="{% url "myblog:detail" article.id %}" id="title{{ article.id }}" class="article-title">{{ article.title }}</a></h4>
+                                     <h5><a href="{% url "myblog:detail" article.id %}" class="article-mobile-title">{{ article.title }}</a></h5>
+                                    {% if article.abstract %}
+                                        <div class="article-content"><p>{{ article.abstract|truncatechars:300 }}</p></div>
+                                    {% else %}
+                                        <div class="article-content"><p>{{ article.content|safe|truncatechars:300}}</p></div>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </li>
+                            <li class="ranking-entry-border-down">
+                        <span><i class="fa fa-eye">&nbsp浏览({{ article.views }})&nbsp&nbsp&nbsp</i></span>
+                        <span><i class="fa fa-comments-o">&nbsp评论({{ article.articlecomments }})&nbsp&nbsp&nbsp</i></span>
+                        <a class="detail-button" href=""> <p>查看更多&nbsp<i class="fa fa-angle-right"></i></p></a>
+                    </li>
+                        </div>
+                    {% endfor %}
+                </ul>
+            </div>
+            {% endfor %}
+
+
+
+{% endblock %}
