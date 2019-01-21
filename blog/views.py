@@ -6,6 +6,7 @@ import markdown
 from django.http import JsonResponse
 import time
 from django.db.models import Q
+from django.contrib.auth.decorators import login_required
 from .models import Comment ,Click,SubComment,SecondComment,Articles,SubClick,Group,Tag
 from django.core.paginator import EmptyPage, PageNotAnInteger,Paginator
 from allauth.socialaccount.models import SocialAccount
@@ -75,6 +76,7 @@ def Date_time():
     return data_time_list
 
 
+@login_required
 def Detail(request,id):
     userinfo = request.user
     userinfor = getinfo(userinfo)

@@ -4,6 +4,8 @@
 
 {% block extCSS %}
     <link rel="stylesheet" type="text/css" charset="utf-8" href="{% static 'blog/detail/css/detail.css' %}">
+    <link rel="stylesheet" type="text/css" charset="utf-8" media="(max-width:768px)" href="{% static 'blog/detail/css/ipad-detail.css' %}">
+    <link rel="stylesheet" type="text/css" charset="utf-8" media="(max-width:600px)" href="{% static 'blog/detail/css/mobile-detail.css' %}">
     <link rel="stylesheet" type="text/css" charset="utf-8" href="{% static 'md_css/friendly.css' %}">
 {#    <link rel="stylesheet" type="text/css" charset="utf-8" media="(max-width:768px)" href="{% static 'blog/mine/css/ipad.css' %}">#}
 {#    <link rel="stylesheet" type="text/css" charset="utf-8" media="(max-width:450px)" href="{% static 'blog/mine/css/mobile-content.css' %}">#}
@@ -43,8 +45,8 @@
                         <div class="line-direction line-1"></div>
                         <span class="comment-tote">{{ commentcount }}人参与评论</span>
                         <div class="show-comment">
-                           <div class="user-comment-header"  id="user-header-url" style="background-image: url('{{ userinfor }}')">
-                               <img class="author-picture" src="" alt="">
+                           <div class="user-comment-header"  id="user-header-url">
+                               <img class="author-picture" src="{{ userinfor }}" alt="">
                            </div>
                             <div class="wrap">
                                 <form method="post" novalidate="novalidate" onsubmit="return false">
@@ -88,7 +90,7 @@
                                             {% ifnotequal user.username foo.username%}
                                                 <div class="repy">
                                                     <a href="javascript:window.stop()"><button class="comment-replay" id="replay{{ foo.id }}" style="color: black" value="{{ foo.id }}">回复</button></a>
-                                                    <a href="javascript:window.stop()"><button class="comment-replay-cancel" id="replay-cancel{{ foo.id }}" style="color: black" value="{{ foo.id }}">取消回复</button></a>
+                                                    <a href="javascript:window.stop()"><button class="comment-replay-cancel" id="replay-cancel{{ foo.id }}" style="color: black" value="{{ foo.id }}">取消</button></a>
                                                 </div>
                                             {% endifnotequal %}
                                         </li>
@@ -98,11 +100,15 @@
                                                     <form  method="post" novalidate="novalidate" onsubmit="return false">
                                                         {% csrf_token %}
                                                         <div class="visitor-comment">
-                                                             <i class="fa fa-smile-o"></i>
-                                                            <textarea id="subcomment{{ foo.id }}" type="text" name="comment"  placeholder="@{{ foo.username }}"></textarea>
-                                                                 <div class="visitor-comment-btn">
-                                                                    <button class="subcomment-btn" id="sub-btn" type="submit" value="{{ foo.id }}">回复</button>
-                                                                 </div>
+                                                            <div class="smile">
+                                                                <i class="fa fa-smile-o"></i>
+                                                            </div>
+                                                            <div class="replay">
+                                                                <textarea id="subcomment{{ foo.id }}" type="text" name="comment"  placeholder="@{{ foo.username }}"></textarea>
+                                                            </div>
+                                                             <div class="visitor-comment-btn">
+                                                                <button class="subcomment-btn" id="sub-btn" type="submit" value="{{ foo.id }}">回复</button>
+                                                             </div>
                                                         </div>
                                                      </form>
                                                 </div>
@@ -134,7 +140,7 @@
                                                                         {% ifnotequal user.username comment.subusername%}
                                                                         <div class="repy">
                                                                             <a href="javascript:window.stop()"><button class="subcomment-replay" id="replay{{ comment.id }}" style="color: black;background: lavender" value="{{ comment.id }}">回复</button></a>
-                                                                            <a href="javascript:window.stop()"><button class="subcomment-replay-cancel" id="replay-cancel{{ comment.id }}" style="color: black;background: lavender" value="{{ comment.id }}">取消回复</button></a>
+                                                                            <a href="javascript:window.stop()"><button class="subcomment-replay-cancel" id="replay-cancel{{ comment.id }}" style="color: black;background: lavender" value="{{ comment.id }}">取消</button></a>
                                                                         </div>
                                                                         {% endifnotequal %}
                                                                     </li>

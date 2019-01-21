@@ -1,0 +1,43 @@
+.backward{
+    display: none;
+}
+
+.article-paper-outside{
+    width: 100%;
+    margin:0
+}
+
+.line-direction:hover{
+    width: 0
+}
+
+.comment{
+    padding: 2rem 0 1rem 0;
+}
+
+.user-comment-header img{
+    width: 32px;
+    height: 32px;
+}
+
+.show-comment{
+    padding: 1rem 0;
+}
+
+.new-comment-list{
+    padding: 1rem 0;
+}
+
+.user {
+    width: 32px;
+    height: 32px;
+}
+
+.user-comment ul {
+    margin-left: 4rem;
+}
+
+.repy button{
+    padding: 1px 0.5rem;
+}
+

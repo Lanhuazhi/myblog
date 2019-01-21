@@ -149,15 +149,18 @@
     margin-bottom: 1px;
 }
 
-.ranking-border-left{
+.ranking-border-left {
     margin-right: 2rem;
     float: left;
     border: 0 solid #F3F3F3;
+}
+
+.ranking-border-left img{
     height: 145px;
     width: 240px;
 }
 
-.border-1 li{
+.clearfix{
     margin-bottom: 1rem;
 }
 
@@ -184,8 +187,19 @@
 }
 
 .article-content p {
-    display: block;
     color: gray;
+}
+
+.article-content{
+    display: block;
+}
+
+.article-mobile-content{
+    display: none;
+}
+
+.min-article-mobile-content{
+    display: none;
 }
 
 .ranking-entry-border-down{

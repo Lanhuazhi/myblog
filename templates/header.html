@@ -42,8 +42,8 @@
                 <div class="header-container">
                     <div class="header-main">
                         <img src="" alt="">
-                        <a href=""><img class="user-mobile-header" id="user-header" src="/static/blog/base/img/hdImg_61ce40236a0ddf771bef53a6df67595d15453808676.jpg" alt=""></a>
-                        <span><p>用户的名字</p></span>
+                        <a href=""><img class="user-mobile-header" id="user-header" src="{{ userinfor }}" alt=""></a>
+                        <span><p>{{ user.username }}</p></span>
                     </div>
                     <div class="header-information">
                         <ul class="main-menu">
@@ -59,10 +59,6 @@
                             <li><a href=""><i class="fa fa-gear"></i>个人设置</a></li>
                             <li><a href=""><i class="fa fa-comments"></i>联系我</a></li>
 {#                            <div class="my-phone">#}
-                            <li>
-                                <a href="http://mail.qq.com/cgi-bin/qm_share"><i class="iconfont icon-youxiang"></i></a>
-                                <a href="https://weibo.com/2580661403/profile?topnav=1&wvr=6&is_all=1" style="color: red"><i class="iconfont icon-xinlang"></i></a>
-                            </li>
 {#                            </div>#}
                         </ul>
                     </div>

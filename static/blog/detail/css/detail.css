@@ -12,8 +12,8 @@
 }
 
 .backward{
-    margin-top: 5rem;
-
+    position:absolute;
+    bottom:4.5rem;
 }
 
 .backward ul li{
@@ -38,7 +38,7 @@
     margin-left: 15%;
     margin-bottom: 2rem;
     position: absolute;
-    top:60%;
+    top:400px;
     width: 70%;
 }
 
@@ -152,16 +152,21 @@
 }
 
 .user-comment-header{
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
     float: left;
     margin-right: 1rem;
     background-size: cover;
 }
 
+
+
+.user-comment-header img{
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+}
+
 .usercomment{
-    margin-left: 10%;
+    margin-left: 50px;
 }
 
 .usercomment textarea{
@@ -200,7 +205,6 @@
 
 
 .user {
-
     width:42px;
     height: 42px;
     border-radius: 50%;
@@ -291,9 +295,9 @@
 
 .repy a{
     border: 0 solid #f4f5f6;
-
     font-size: 4px;
 }
+
 .comment-replay{
     display: block;
 }
@@ -312,7 +316,7 @@
 }
 
 .visitor-wrap{
-    margin-left: 10%;
+    margin-left: 5%;
     margin-top: 1rem;
 }
 
@@ -323,7 +327,6 @@
 .visitor-comment{
     width: 100%;
     height: 2.8rem;
-    overflow: hidden;
 }
 
 .each-comment{
@@ -334,33 +337,43 @@
     font-size:20px;
     color: lightskyblue;
     padding: 2px;
+    float: left;
 }
 
 .visitor-comment textarea{
     text-align: center;
     padding: 2px;
-    width: 75%;
+    width: 80%;
     height: 2.2rem;
-    border-radius: 10px;
     border: none;
+    float: left;
     background-color: lavender;
 }
 
+@media (max-width: 970px) {
+    .visitor-comment textarea{
+        width: 70%;
+    }
+    . }
+
+@media (max-width: 700px) {
+    .visitor-comment textarea{
+        width: 60%;
+    }
+    . }
 .visitor-comment-btn button{
     font-size: 12px;
-    padding: 2px 1rem;
-    margin: 0 0.5rem;
-    border-radius: 10px;
+    height: 2.2rem;
+    padding: 0 1rem;
     border: none;
     background-color: lavender;
     color: gray;
 }
 
-.visitor-comment-btn {
-    float: right;
-    margin-right: 1rem;
-    padding: 5px 0;
-}
+/*.visitor-comment-btn {*/
+    /*margin-right: 1rem;*/
+    /*padding: 5px 0;*/
+/*}*/
 
 .page{
     text-align: center;

@@ -1,0 +1,16 @@
+.min-article-mobile-content{
+    display: block;
+}
+
+.min-article-mobile-content p{
+    font-size: 4px;
+    color: grey;
+}
+
+.article-mobile-content  {
+    display: none;
+}
+
+.article-content{
+    display: none;
+}

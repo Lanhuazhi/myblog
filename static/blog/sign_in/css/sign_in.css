@@ -1,13 +1,15 @@
 body{
     background-image: url("/static/blog/sign_in/img/1545826588982.png");
     background-size: cover;
+    background-repeat: no-repeat!important;
 }
 
 .container{
     width: 402px;
     height: 500px;
-    background: #ffffff;
-    margin: 100px 470px;
+    /*background: #ffffff;*/
+    margin: 100px auto;
+    background: white;
     border-radius: 8px;
 }
 
@@ -93,7 +95,6 @@ body{
 
 .third-party-login{
     margin: 0 20%;
-
 }
 
 .third-party-login li{
