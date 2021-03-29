@@ -27,7 +27,7 @@ oauthlib==3.0.0
 pefile==2018.8.8
 pilkit==2.0
 Pillow==5.4.1
-Pygments==2.3.1
+Pygments==2.7.4
 PyMySQL==0.9.3
 PyQt5==5.11.3
 PyQt5-sip==4.19.13
