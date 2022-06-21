@@ -22,7 +22,7 @@ Markdown==3.0.1
 meditor==2.13.38
 mtable==0.1.8
 mysqlclient==1.4.1
-numpy==1.16.0
+numpy==1.22.0
 oauthlib==3.0.0
 pefile==2018.8.8
 pilkit==2.0
